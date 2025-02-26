@@ -142,7 +142,6 @@ fun main() {
         }
     }
 
-    // Escribir contenido HTML a un archivo
     val file = File("users.html")
     file.writeText(htmlContent)
 }
