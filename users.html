@@ -1,6 +1,19 @@
 <html>
   <head>
     <title>Lista de Usuarios</title>
+    <style>.user-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.user-card h2 {
+    margin: 0 0 8px 0;
+}
+.user-card p {
+    margin: 4px 0;
+}</style>
   </head>
   <body>
     <h1>Lista de usuarios con dirección y coordenadas:</h1>
@@ -382,32 +395,24 @@
       </tr>
     </table>
     <h1>Usuarios que viven en 789 Maple Street:</h1>
-    <table border="1">
-      <tr>
-        <th>Nombre</th>
-        <th>Email</th>
-        <th>Dirección</th>
-        <th>Coordenadas</th>
-      </tr>
-      <tr>
-        <td>Laura Wilson</td>
-        <td>laurawilson@example.com</td>
-        <td>789 Maple Street, Anytown, 12345-6789</td>
-        <td>(42.3456, -71.2345)</td>
-      </tr>
-      <tr>
-        <td>Ava Patel</td>
-        <td>avapatel@example.com</td>
-        <td>789 Maple Street, Anytown, 12345-6789</td>
-        <td>(42.5678, -71.9012)</td>
-      </tr>
-      <tr>
-        <td>Chloe Nguyen</td>
-        <td>chloenguyen@example.com</td>
-        <td>789 Maple Street, Anytown, 12345-6789</td>
-        <td>(42.9012, -71.5678)</td>
-      </tr>
-    </table>
+    <div class="user-card">
+      <h2>Laura Wilson</h2>
+      <p>Email: laurawilson@example.com</p>
+      <p>Dirección: 789 Maple Street, Anytown, 12345-6789</p>
+      <p>Coordenadas: (42.3456, -71.2345)</p>
+    </div>
+    <div class="user-card">
+      <h2>Ava Patel</h2>
+      <p>Email: avapatel@example.com</p>
+      <p>Dirección: 789 Maple Street, Anytown, 12345-6789</p>
+      <p>Coordenadas: (42.5678, -71.9012)</p>
+    </div>
+    <div class="user-card">
+      <h2>Chloe Nguyen</h2>
+      <p>Email: chloenguyen@example.com</p>
+      <p>Dirección: 789 Maple Street, Anytown, 12345-6789</p>
+      <p>Coordenadas: (42.9012, -71.5678)</p>
+    </div>
     <h1>Nombres completos de todos los usuarios:</h1>
     <ul>
       <li>John Doe</li>

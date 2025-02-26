@@ -74,6 +74,23 @@ fun main() {
     val htmlContent = createHTML().html {
         head {
             title("Lista de Usuarios")
+            style {
+                +"""
+                .user-card {
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    padding: 16px;
+                    margin: 16px 0;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .user-card h2 {
+                    margin: 0 0 8px 0;
+                }
+                .user-card p {
+                    margin: 4px 0;
+                }
+                """.trimIndent()
+            }
         }
         body {
             h1 { +"Lista de usuarios con dirección y coordenadas:" }
@@ -115,21 +132,12 @@ fun main() {
             }
 
             h1 { +"Usuarios que viven en 789 Maple Street:" }
-            table {
-                attributes["border"] = "1"
-                tr {
-                    th { +"Nombre" }
-                    th { +"Email" }
-                    th { +"Dirección" }
-                    th { +"Coordenadas" }
-                }
-                users.filter { it.address.street == "789 Maple Street" }.forEach { user ->
-                    tr {
-                        td { +"${user.firstname} ${user.lastname}" }
-                        td { +user.email }
-                        td { +"${user.address.street}, ${user.address.city}, ${user.address.zipcode}" }
-                        td { +"(${user.address.geo.lat}, ${user.address.geo.lng})" }
-                    }
+            users.filter { it.address.street == "789 Maple Street" }.forEach { user ->
+                div("user-card") {
+                    h2 { +"${user.firstname} ${user.lastname}" }
+                    p { +"Email: ${user.email}" }
+                    p { +"Dirección: ${user.address.street}, ${user.address.city}, ${user.address.zipcode}" }
+                    p { +"Coordenadas: (${user.address.geo.lat}, ${user.address.geo.lng})" }
                 }
             }
 
@@ -142,6 +150,9 @@ fun main() {
         }
     }
 
+    // Escribir contenido HTML a un archivo
     val file = File("users.html")
     file.writeText(htmlContent)
+
+    println("Archivo HTML generado: users.html")
 }
